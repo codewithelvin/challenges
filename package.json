@@ -1,0 +1,17 @@
+{
+    "name": "challenges",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "test": "jasmine"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "jasmine": "^5.7.1",
+        "jasmine-console-reporter": "^3.1.0",
+        "jest": "^30.2.0"
+    }
+}
