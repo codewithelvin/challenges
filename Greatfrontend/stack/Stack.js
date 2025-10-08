@@ -54,16 +54,16 @@ export default class Stack {
   }
 }
 
-const stack = new Stack();
-console.log(stack.isEmpty()); // true
-console.log(stack.push(33)); // 1
-console.log(stack.push(44)); // 2
-console.log("length =>", stack.length()); // 2
-console.log(stack.push(55)); // 3
-console.log("peek =>", stack.peek()); // 55
-console.log(stack.pop()); // 55
-console.log("length =>", stack.length()); //2
-console.log(stack.pop()); // 44
-console.log(stack.pop()); // 33
-console.log("length =>", stack.length()); // 0
-console.log(stack.isEmpty()); // true
+// const stack = new Stack();
+// console.log(stack.isEmpty()); // true
+// console.log(stack.push(33)); // 1
+// console.log(stack.push(44)); // 2
+// console.log("length =>", stack.length()); // 2
+// console.log(stack.push(55)); // 3
+// console.log("peek =>", stack.peek()); // 55
+// console.log(stack.pop()); // 55
+// console.log("length =>", stack.length()); //2
+// console.log(stack.pop()); // 44
+// console.log(stack.pop()); // 33
+// console.log("length =>", stack.length()); // 0
+// console.log(stack.isEmpty()); // true

@@ -35,5 +35,5 @@ Function.prototype.myCall = function (thisArg, ...argArray) {
     return `${prefix} ${this.name}, ${message}`;
   }
 
-console.log(getName.myCall(person))
-console.log(greeting.myCall(person, 'Hello', 'how are you?'))
+// console.log(getName.myCall(person))
+// console.log(greeting.myCall(person, 'Hello', 'how are you?'))
