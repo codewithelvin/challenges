@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  user-select: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ul.children {
+  padding-left: 20px;
+}
+
+input[type='checkbox'],
+label {
+  cursor: pointer;
+}
