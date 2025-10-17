@@ -1,4 +1,4 @@
-import type { CheckBoxItems } from './App';
+import { CheckBoxItems } from '../TransferList';
 
 type Dummy = {
   left: CheckBoxItems[];

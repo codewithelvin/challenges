@@ -1,8 +1,9 @@
 import { useState, type ChangeEvent } from 'react';
 import { Fragment } from 'react/jsx-runtime';
-import { dummy } from './data';
-import './App.css';
-import { COLUMNS, OPERATIONS } from './enums';
+
+import './TransferList.css';
+import { dummy } from './common/data';
+import { COLUMNS, OPERATIONS } from './common/enums';
 
 export type CheckBoxItems = {
   label: string;
@@ -30,7 +31,7 @@ function CheckBoxItem({
   );
 }
 
-function App() {
+function TransferList() {
   const [state, setState] = useState({ ...dummy });
 
   const handleClickedItem = (
@@ -149,4 +150,4 @@ function App() {
   );
 }
 
-export default App;
+export default TransferList;
