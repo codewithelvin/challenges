@@ -1,7 +1,6 @@
 import { useState, type ChangeEvent } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 
-import './TransferList.css';
 import { dummy } from './common/data';
 import { COLUMNS, OPERATIONS } from './common/enums';
 
@@ -70,7 +69,7 @@ function TransferList() {
   };
 
   return (
-    <table>
+    <table style={{ maxWidth: '600px' }}>
       <tr>
         <td>
           <ul>
