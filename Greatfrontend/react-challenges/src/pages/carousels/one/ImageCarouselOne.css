@@ -1,0 +1,108 @@
+*:has(.carouselWrapper) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.carouselWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  .carouselBox {
+    background-color: #000;
+    height: 400px;
+    overflow: hidden;
+    width: min(600px, 100vw);
+    position: relative;
+
+    .image {
+      object-fit: contain;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image.out {
+      animation: fadeOut 0.6s ease forwards;
+    }
+
+    .image.in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .arrows {
+      --size: 40px;
+      height: var(--size);
+      width: var(--size);
+      background-color: #0008;
+      border-radius: 100%;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0;
+    }
+
+    .arrows.left {
+      left: 16px;
+    }
+
+    .arrows.right {
+      right: 16px;
+    }
+
+    .carouselPages {
+      background-color: #0008;
+      border-radius: 12px;
+      display: inline-flex;
+      gap: 8px;
+      padding: 8px !important;
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .pagesButton {
+        --size: 8px;
+        height: var(--size);
+        width: var(--size);
+        border: none;
+        border-radius: 100%;
+        background-color: #666;
+        cursor: pointer;
+        display: inline-block;
+        flex-shrink: 0;
+        padding: 0;
+        transition: background-color 0.3s ease-in-out;
+        margin: 0;
+      }
+
+      .pagesButton.active {
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
