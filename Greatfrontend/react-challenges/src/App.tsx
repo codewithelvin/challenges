@@ -1,16 +1,18 @@
 import { Routes, Route } from 'react-router';
-import NestedCheckboxes from './pages/nested-chekboxes/NestedCheckboxes';
-import TransferList from './pages/transfer-list/TransferList';
-import Stopwatch from './pages/stopwatch/Stopwatch';
-import ImageCarouselOne from './pages/carousels/one/ImageCarouselOne';
+
+import Home from './pages/Home';
+import { routes } from './routes';
+import { Layout } from './component/Layout';
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/nested-checkboxes" element={<NestedCheckboxes />} />
-      <Route path="/transfer-list" element={<TransferList />} />
-      <Route path="/stopwatch" element={<Stopwatch />} />
-      <Route path="/carousel/one" element={<ImageCarouselOne />} />
+      <Route path="/" element={<Home />} />
+      <Route element={<Layout />}>
+        {routes.map(({ path, component: Component }) => {
+          return <Route key={path} path={path} element={<Component />} />;
+        })}
+      </Route>
     </Routes>
   );
 }

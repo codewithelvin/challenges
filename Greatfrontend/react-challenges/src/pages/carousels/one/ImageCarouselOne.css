@@ -1,15 +1,10 @@
-*:has(.carouselWrapper) {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
 .carouselWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  height: calc(100vh - 100px);
+
   .carouselBox {
     background-color: #000;
     height: 400px;
