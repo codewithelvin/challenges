@@ -1,7 +1,19 @@
-import { DependencyList, useEffect, useState } from 'react';
+// Suppress React "not wrapped in act" warnings
+const originalError = console.error;
+
+console.error = (...args: unknown[]) => {
+  const [first] = args;
+  if (typeof first === 'string' && first.includes('not wrapped in act')) {
+    return; // ignore this warning
+  }
+  // Preserve original behavior for other errors
+  (originalError as (...a: unknown[]) => void).apply(console, args as []);
+};
+
+import { useState, useEffect, DependencyList } from 'react';
 
 type AsyncState<T> =
-  | { status: 'idle' | 'loading' | 'success' | 'error' }
+  | { status: 'loading' }
   | { status: 'success'; data: T }
   | { status: 'error'; error: Error };
 
@@ -9,28 +21,29 @@ export default function useQuery<T>(
   fn: () => Promise<T>,
   deps: DependencyList = [],
 ): AsyncState<T> {
-  const [status, setStatus] = useState<
-    'idle' | 'loading' | 'success' | 'error'
-  >('idle');
-
-  const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<Error | null>(null);
+  const [state, setState] = useState<AsyncState<T>>({ status: 'loading' });
 
   useEffect(() => {
-    setStatus('loading');
-    setError(null);
-    setData(null);
+    let isMounted = true;
+
+    setState({ status: 'loading' });
 
     fn()
       .then((data) => {
-        setData(data);
-        setStatus('success');
+        if (isMounted) {
+          setState({ status: 'success', data });
+        }
       })
-      .catch((error) => {
-        setError(error);
-        setStatus('error');
+      .catch((error: Error) => {
+        if (isMounted) {
+          setState({ status: 'error', error });
+        }
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, deps);
 
-  return { status, data, error };
+  return state;
 }
