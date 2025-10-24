@@ -4,6 +4,7 @@ import TransferList from './pages/transfer-list/TransferList';
 import Stopwatch from './pages/stopwatch/Stopwatch';
 import ImageCarouselOne from './pages/carousels/one/ImageCarouselOne';
 import UseQueryChallenge from './pages/customUseQuery/UseQueryChallenge';
+import StarRating from './pages/StarRating';
 
 type Routes = {
   path: string;
@@ -30,5 +31,9 @@ export const routes: Routes[] = [
   {
     path: '/use-query',
     component: UseQueryChallenge,
+  },
+  {
+    path: '/star-rating',
+    component: StarRating,
   },
 ];
